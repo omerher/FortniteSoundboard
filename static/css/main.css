@@ -1,0 +1,76 @@
+body {
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.player-img {
+    align-items: center;
+    height: 200px;
+}
+
+.title {
+    font-family: Helvetica;
+    text-align: center;
+    font-size: 64px; 
+}
+
+.player-name {
+    font-family: Helvetica;
+    font-style: italic;
+}
+
+#players-page {
+    text-align: center;
+    color: red;
+}
+
+.play-img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.sound-name {
+    margin-left: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 20px;
+}
+
+.player {
+    background-color: rgb(94, 187, 237);
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    word-wrap: break-word;
+}
+
+.player-soundbar {
+    position: relative;
+    width: 50%;
+    height: 60%;
+    top: 1px;
+    left: 15px;
+    opacity: .2;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.right-player {
+    width: 50px;
+    height: 50px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+  }

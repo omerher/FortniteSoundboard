@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Fortnite Soundboard
+{% endblock %}
+
+{% block body %}
+  <h1 class="title">Fortnite Soundboard!</h1>
+
+      {% for player in players %}
+          <p>{{player}}</p>
+          <a href="{{ url_for('players', player=player) }}"><img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img"></a>
+      {% endfor %}
+{% endblock %}
