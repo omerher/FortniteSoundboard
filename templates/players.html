@@ -12,17 +12,17 @@
     <hr>
     <div class="soundboard">  
       {% for sound in sounds_players[player] %}
-          <div class="player cut-text">
-            <audio class="sound" id="{{sound}}" src="{{ url_for('static', filename='sounds/' + player + '/' + sound) }}" onended="changeImage('{{sound}}-img');reset()"></audio>
-            <span class="helper"></span>
-            <img src="/static/imgs/icons/play.png" id='{{sound}}-img' class="play-img" onclick="soundControl('{{sound}}');changeImage('{{sound}}-img')">
-            
-            <span class="sound-name">{{ sound.split(".")[0] }}</span>
-          </div>
-          <br>
-    </div>
+        <div class="player cut-text inline-block">
+          <audio class="sound" id="{{sound}}" src="{{ url_for('static', filename='sounds/' + player + '/' + sound) }}" onended="changeImage('{{sound}}-img');reset()"></audio>
+          <span class="helper"></span>
+          <img src="/static/imgs/icons/play.png" id='{{sound}}-img' class="play-img" onclick="soundControl('{{sound}}');changeImage('{{sound}}-img')">
+          
+          <span class="sound-name">{{ sound.split(".")[0] }}</span>
+        </div>
       {% endfor %}
+    </div>
   </div>
+  
   <script>
     var imgs = ["/static/imgs/icons/play.png", "/static/imgs/icons/pause.png"];
     i = 0;
