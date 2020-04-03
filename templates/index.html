@@ -7,8 +7,15 @@
 {% block body %}
   <h1 class="title">Fortnite Soundboard!</h1>
 
-      {% for player in players %}
-          <p>{{player}}</p>
-          <a href="{{ url_for('players', player=player) }}"><img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img"></a>
-      {% endfor %}
+  <div class="players-list">
+    {% for player in players %}
+      {% set img_src = url_for('static', filename='imgs/players/' + player + '.jpg') %}
+      {{img_src}}
+      <div class="player-list inline-block" style="background-image: url({{img_src}});">
+        <a href="{{ url_for('players', player=player) }}"></a>
+        <!-- <img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img"> -->
+        <p class="player-list">{{player}}</p>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

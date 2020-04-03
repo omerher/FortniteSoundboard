@@ -4,6 +4,16 @@ body {
     background-color: LightCyan;
 }
 
+.players-list {
+    position: relative;
+    width: 75%;
+    margin: auto;
+}
+
+.player-list {
+    
+}
+
 .player-img {
     align-items: center;
     height: 200px;
