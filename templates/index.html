@@ -15,7 +15,6 @@
     {% for player in players if query.lower() in player.lower() %}
       <div class="player-list inline-block">
         <a href="{{ url_for('players', player=player) }}"><img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img"></a>
-        <!-- <img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img"> -->
         <span class="player-list-name">{{player}}</span>
       </div>
     {% endfor %}

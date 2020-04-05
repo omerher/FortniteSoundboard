@@ -26,21 +26,21 @@
   <script>
     var imgs = ["/static/imgs/icons/play.png", "/static/imgs/icons/pause.png"];
     i = 0;
-    playing = false
+    playing = false;
 
     function reset() {
-      playing = false
-      sounds = document.getElementsByClassName('sound')
-      images = document.getElementsByClassName('play-img')
+      playing = false;
+      sounds = document.getElementsByClassName('sound');
+      images = document.getElementsByClassName('play-img');
       for (var i = 0; i < sounds.length; i++) {
-        sound = sounds[i]
-        sound.pause()
+        sound = sounds[i];
+        sound.pause();
         sound.currentTime = 0;
       }
 
       for (var i = 0; i < images.length; i++) {
-        image = images[i]
-        image.src = imgs[0]
+        image = images[i];
+        image.src = imgs[0];
       }
     }
 
@@ -57,27 +57,27 @@
     function soundControl(sound) {
       var audio = document.getElementById(sound);
       if (playing == false) {
-        audio.play()
-        playing = true
+        audio.play();
+        playing = true;
       } else {
         // if the clicked player isn't playing anything, start playing
-        console.log(document.getElementById(sound + "-img").src)
-        console.log(document.getElementById(sound + "-img").src.endsWith('pause.png'))
+        console.log(document.getElementById(sound + "-img").src);
+        console.log(document.getElementById(sound + "-img").src.endsWith('pause.png'));
 
         if (document.getElementById(sound + "-img").src.endsWith('pause.png')) {
-          reset()
+          reset();
         } else {
-          reset()
-          audio.play()
-          playing = true
-          changeImage(sound + "-img")
+          reset();
+          audio.play();
+          playing = true;
+          changeImage(sound + "-img");
         }
       }
     }
 
     function download(id) {
-      audio = document.getElementById(id)
-      download(audio)
+      audio = document.getElementById(id);
+      download(audio);
     }
   </script>
 {% endblock %}
