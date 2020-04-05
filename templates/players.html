@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{player}} Soundboard
+{% endblock %}
+
+{% block body %}
+<span class="title"><h1>{{player}}</h1></span>
+  <div class="content"> 
+    <img src="{{ url_for('static', filename='imgs/players/' + player + '.jpg') }}" class="player-img">
+    <hr>
+    <div class="soundboard">  
+      {% for sound in sounds_players[player] %}
+        <div class="player cut-text inline-block">
+          <audio class="sound" id="{{sound}}" src="{{ url_for('static', filename='sounds/' + player + '/' + sound) }}" onended="changeImage('{{sound}}-img');reset()"></audio>
+          <span class="helper"></span>
+          <img src="/static/imgs/icons/play.png" id='{{sound}}-img' class="play-img" onclick="soundControl('{{sound}}');changeImage('{{sound}}-img')">
+          <a href="{{ url_for('static', filename='sounds/' + player + '/' + sound) }}" download="{{player + '_' + sound}}"><img src="{{ url_for('static', filename='imgs/icons/download.png') }}" class="download-img"></a>
+          
+          <span class="sound-name">{{ sound.split(".")[0] }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    var imgs = ["/static/imgs/icons/play.png", "/static/imgs/icons/pause.png"];
+    i = 0;
+    playing = false
+
+    function reset() {
+      playing = false
+      sounds = document.getElementsByClassName('sound')
+      images = document.getElementsByClassName('play-img')
+      for (var i = 0; i < sounds.length; i++) {
+        sound = sounds[i]
+        sound.pause()
+        sound.currentTime = 0;
+      }
+
+      for (var i = 0; i < images.length; i++) {
+        image = images[i]
+        image.src = imgs[0]
+      }
+    }
+
+    function changeImage(image) {
+      i++;
+      
+      document.getElementById(image).src = imgs[i];
+      
+      if (i == imgs.length - 1) {
+        i = -1;
+      }
+    }
+
+    function soundControl(sound) {
+      var audio = document.getElementById(sound);
+      if (playing == false) {
+        audio.play()
+        playing = true
+      } else {
+        // if the clicked player isn't playing anything, start playing
+        console.log(document.getElementById(sound + "-img").src)
+        console.log(document.getElementById(sound + "-img").src.endsWith('pause.png'))
+
+        if (document.getElementById(sound + "-img").src.endsWith('pause.png')) {
+          reset()
+        } else {
+          reset()
+          audio.play()
+          playing = true
+          changeImage(sound + "-img")
+        }
+      }
+    }
+
+    function download(id) {
+      audio = document.getElementById(id)
+      download(audio)
+    }
+  </script>
+{% endblock %}
