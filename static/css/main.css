@@ -232,7 +232,7 @@ body {
     
 }
 
-.select-container select, option, button, label, input {
+.select-styling {
     font-size: 1.25rem;
     font-weight: 700;
     width: 150px;

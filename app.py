@@ -41,11 +41,27 @@ def submit():
 @app.route('/submit-file', methods=["GET", "POST"])
 def submitfile():
     if request.method == "POST":
+        if 'file' not in request.files:
+            flash("No file part")
+            return redirect('/')
+        
         file = request.files["file"]
-        player_name = request.form.get("player-name", "XXX")
+        player_name = request.form["player-name"]
         filename = secure_filename(file.filename)
-        filename = player_name + "_" + filename  # formats the file name
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        
+        if player_name != "other":
+            filename = player_name + "_" + filename  # formats the file name
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        else:
+            player_name = request.form["other"]
+            filename = player_name + "_" + filename  # formats the file name
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+        flash("Success!")
         return redirect('/')
 
 if __name__ == "__main__":

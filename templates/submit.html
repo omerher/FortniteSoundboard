@@ -8,26 +8,26 @@ Submit
 
 <span class="title"><h1>Submit Sounds</h1></span>
 
-<div id="submit-container">
+<div class="submit-container">
     <form action="/submit-file" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" accept="audio/mp3, audio/wav" class="inputfile">
-        <label for="file" id="file-label">Choose a file</label>
+        <label for="file" id="file-label" class="select-styling">Choose a file</label>
         
         <br><br><br>
-        
+
         <div class="select-container">
-            <select id="players-select" onchange="handleOther(this.value);">
+            <select id="players-select" class="select-styling" name="player-name" onchange="handleOther(this.value);">
                 {% for player in players %}
-                    <option value="{{player}}" name="player-name">{{player}}</option>
+                    <option value="{{player}}" class="select-styling">{{player}}</option>
                 {% endfor %}
-                <option value="other">Other</option>
+                <option value="other" class="select-styling">Other</option>
             </select>
-            <input type="text" placeholder="Player..." name="other" id="other" style="display: none;">
+            <input type="text" placeholder="Player..." name="other" id="other" class="select-styling" style="display: none;">
         </div>
         
         <br><br>
-
-        <button type="submit">Submit</button>
+        
+        <button type="submit" class="select-styling">Submit</button>
     </form>
 </div>
 
