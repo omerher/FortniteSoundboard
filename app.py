@@ -36,7 +36,7 @@ def search():
 
 @app.route('/submit')
 def submit():
-    return render_template("submit.html")
+    return render_template("submit.html", players=sounds_players)
 
 @app.route('/submit-file', methods=["GET", "POST"])
 def submitfile():

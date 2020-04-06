@@ -195,8 +195,46 @@ body {
     width: 100%;
     margin: 0;
     padding: 14px;
+    }
+    .header input[type=text] {
+        border: 1px solid #ccc;  
+    }
 }
-.header input[type=text] {
-    border: 1px solid #ccc;  
+
+.submit-container {
+    position: relative;
+    text-align: center;
 }
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    display: inline-block;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+
+.inputfile + label:hover {
+    cursor: pointer;
+}
+
+.select-container {
+
+}
+
+.select-container select, option, button, label {
+    font-size: 1.25rem;
+    font-weight: 700;
+    width: 150px;
+    height: 40px;
+    background-color: #ddd;
+    float: left;
+    
 }
