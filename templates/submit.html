@@ -13,15 +13,32 @@ Submit
         <input type="file" name="file" id="file" accept="audio/mp3, audio/wav" class="inputfile">
         <label for="file" id="file-label">Choose a file</label>
         
+        <br><br><br>
+        
         <div class="select-container">
-            <select id="players-select">
+            <select id="players-select" onchange="handleOther(this.value);">
                 {% for player in players %}
-                    <option value="{{player}}" style="width: getWidth();">{{player}}</option>
+                    <option value="{{player}}">{{player}}</option>
                 {% endfor %}
+                <option value="other">Other</option>
             </select>
+            <input type="text" placeholder="Player..." name="other" id="other" style="display: none;">
         </div>
+        
+        <br><br>
+
         <button type="submit">Submit</button>
     </form>
 </div>
 
+<script>
+    function handleOther(value) {
+        element = document.getElementById("other");
+        if (value == "other") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    }
+</script>
 {% endblock %}

@@ -204,6 +204,9 @@ body {
 .submit-container {
     position: relative;
     text-align: center;
+    vertical-align: middle;
+    width: 50%;
+    margin: auto;
 }
 
 .inputfile {
@@ -226,15 +229,15 @@ body {
 }
 
 .select-container {
-
+    
 }
 
-.select-container select, option, button, label {
+.select-container select, option, button, label, input {
     font-size: 1.25rem;
     font-weight: 700;
     width: 150px;
     height: 40px;
     background-color: #ddd;
-    float: left;
-    
+    box-shadow: none;
+    margin: auto;
 }
