@@ -42,7 +42,7 @@ def submit():
 def submitfile():
     if request.method == "POST":
         file = request.files["file"]
-        player_name = request.form["name"]
+        player_name = request.form.get("player-name", "XXX")
         filename = secure_filename(file.filename)
         filename = player_name + "_" + filename  # formats the file name
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))

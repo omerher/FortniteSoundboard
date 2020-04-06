@@ -195,10 +195,10 @@ body {
     width: 100%;
     margin: 0;
     padding: 14px;
-    }
-    .header input[type=text] {
-        border: 1px solid #ccc;  
-    }
+}
+.header input[type=text] {
+    border: 1px solid #ccc;  
+}
 }
 
 .submit-container {

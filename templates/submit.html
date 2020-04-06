@@ -8,7 +8,7 @@ Submit
 
 <span class="title"><h1>Submit Sounds</h1></span>
 
-<div class="submit-container">
+<div id="submit-container">
     <form action="/submit-file" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" accept="audio/mp3, audio/wav" class="inputfile">
         <label for="file" id="file-label">Choose a file</label>
@@ -18,7 +18,7 @@ Submit
         <div class="select-container">
             <select id="players-select" onchange="handleOther(this.value);">
                 {% for player in players %}
-                    <option value="{{player}}">{{player}}</option>
+                    <option value="{{player}}" name="player-name">{{player}}</option>
                 {% endfor %}
                 <option value="other">Other</option>
             </select>
